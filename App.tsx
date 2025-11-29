@@ -79,6 +79,7 @@ const App: React.FC = () => {
         onConfirm={handlePaymentConfirm}
         total={totalPrice}
         lang={lang}
+        cart={cart}
       />
 
       <AboutModal 
