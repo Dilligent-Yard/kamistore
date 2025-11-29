@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PRODUCTS, UI_TEXT } from './constants';
 import { Language, Product } from './types';
-import { LanguageSwitch } from './components/LanguageSwitch';
 import { ProductCard } from './components/ProductCard';
 import { Button } from './components/Button';
 import { PaymentModal } from './components/PaymentModal';
