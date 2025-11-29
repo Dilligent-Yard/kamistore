@@ -17,7 +17,6 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onC
   const [processing, setProcessing] = useState(false);
   const [timeLeft, setTimeLeft] = useState(600); // 10 minutes
   const [transactionId, setTransactionId] = useState('');
-  const [progressLog, setProgressLog] = useState<string>('');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -297,16 +296,9 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onC
                         className="mt-6 h-14 relative overflow-hidden bg-white hover:bg-emerald-400 hover:text-black transition-all duration-500 border-none touch-manipulation"
                      >
                        {processing ? (
-                         <div className="flex flex-col items-center justify-center w-full">
-                           <div className="flex items-center gap-3">
-                             <RefreshCw size={16} className="animate-spin" />
-                             <span className="text-[10px] tracking-widest font-bold">{UI_TEXT.awaiting[lang]}</span>
-                           </div>
-                           {progressLog && (
-                              <span className="absolute bottom-2 text-[8px] font-mono text-neutral-500 normal-case opacity-0 animate-slide-up">
-                                {progressLog}
-                              </span>
-                           )}
+                         <div className="flex items-center justify-center gap-3">
+                           <RefreshCw size={16} className="animate-spin" />
+                           <span className="text-[10px] tracking-widest font-bold">{UI_TEXT.awaiting[lang]}</span>
                          </div>
                        ) : (
                          <div className="flex items-center justify-center gap-3">
