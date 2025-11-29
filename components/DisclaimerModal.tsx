@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { AlertTriangle, ShieldAlert, CheckCircle2, X } from 'lucide-react';
+import { AlertTriangle, ShieldAlert, X } from 'lucide-react';
 import { Button } from './Button';
 
 interface DisclaimerModalProps {
