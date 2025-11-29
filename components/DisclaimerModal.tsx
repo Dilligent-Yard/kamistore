@@ -56,9 +56,9 @@ export const DisclaimerModal: React.FC<DisclaimerModalProps> = ({ isOpen, onClos
               <div className="flex gap-4 items-start">
                  <span className="text-neutral-500 mt-1">01.</span>
                  <div className="space-y-1">
-                    <h3 className="text-xs font-mono text-white uppercase tracking-wider">Método de Pagamento Manual</h3>
+                    <h3 className="text-xs font-mono text-white uppercase tracking-wider">Pagamento P2P</h3>
                     <p className="text-xs text-neutral-400 leading-relaxed">
-                      O sistema Kāmi opera exclusivamente via <strong className="text-white">PIX</strong> no momento. A integração via API bancária automatizada está em desenvolvimento.
+                      O sistema Kāmi opera com pagamento <strong className="text-white">P2P (peer-to-peer)</strong>. A transação é feita puramente por email, sem intermediários financeiros.
                     </p>
                  </div>
               </div>
@@ -66,9 +66,9 @@ export const DisclaimerModal: React.FC<DisclaimerModalProps> = ({ isOpen, onClos
               <div className="flex gap-4 items-start">
                  <span className="text-neutral-500 mt-1">02.</span>
                  <div className="space-y-1">
-                    <h3 className="text-xs font-mono text-white uppercase tracking-wider">Transferência Direta (P2P)</h3>
+                    <h3 className="text-xs font-mono text-white uppercase tracking-wider">Processamento por Email</h3>
                     <p className="text-xs text-neutral-400 leading-relaxed">
-                      O pagamento será enviado diretamente para a conta do vendedor. Não há intermediários financeiros neste estágio do protocolo.
+                      Após enviar seu pedido, você receberá um email com as instruções detalhadas para pagamento. O processamento é feito manualmente através de comunicação por email.
                     </p>
                  </div>
               </div>
