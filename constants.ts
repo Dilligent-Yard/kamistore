@@ -1,7 +1,5 @@
 import { Product, TranslationMap } from './types';
 
-export const PIX_KEY = 'cf02e0fd-7ef0-4302-b5d4-bcebdc146257';
-
 export const PRODUCTS: Product[] = [
   {
     id: 'key_01',
@@ -40,9 +38,6 @@ export const UI_TEXT: TranslationMap = {
   
   // Payment Modal
   paymentTitle: { ja: '支払いゲートウェイ', en: 'Payment Gateway', pt: 'Terminal de Pagamento' },
-  pixInstructions: { ja: 'QRコードをスキャン', en: 'SCAN QR CODE // COPY KEY', pt: 'ESCANEAR QR CODE // COPIAR CHAVE' },
-  copyKey: { ja: 'コピー', en: 'Copy Pix Key', pt: 'Copiar Chave Pix' },
-  copied: { ja: 'コピーしました', en: 'Key Copied', pt: 'Chave Copiada' },
   confirmPayment: { ja: '支払いを確認', en: 'Verify Transaction', pt: 'Confirmar Transação' },
   cancel: { ja: 'キャンセル', en: 'Abort', pt: 'Cancelar' },
   awaiting: { ja: '待機中...', en: 'Verifying...', pt: 'Verificando...' },
@@ -53,16 +48,7 @@ export const UI_TEXT: TranslationMap = {
   expiresIn: { ja: '有効期限', en: 'Session Expires', pt: 'Sessão Expira em' },
   status: { ja: '状態', en: 'Status', pt: 'Status' },
   statusPending: { ja: '保留中', en: 'Pending Payment', pt: 'Pagamento Pendente' },
-  scanQr: { ja: 'スキャン', en: 'Scan via App', pt: 'Escanear via App' },
   beneficiary: { ja: '受取人', en: 'Beneficiary', pt: 'Beneficiário' },
   bank: { ja: '銀行', en: 'Institution', pt: 'Instituição' },
-  reference: { ja: '参照', en: 'Reference', pt: 'Referência' },
-  
-  // Email Instructions
-  requiredAction: { ja: '必要なアクション', en: 'REQUIRED ACTION', pt: 'AÇÃO NECESSÁRIA' },
-  emailInstruction: { 
-    ja: '配送のため、支払いの説明欄にメールアドレスを入力してください。', 
-    en: 'Input email in payment description to ensure asset delivery.', 
-    pt: 'Insira seu e-mail na descrição do pagamento para envio imediato.' 
-  }
+  reference: { ja: '参照', en: 'Reference', pt: 'Referência' }
 };
