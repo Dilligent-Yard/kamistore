@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Language, Product } from '../types';
 import { UI_TEXT } from '../constants';
 import { Button } from './Button';
-import { X, Lock, Zap, Building2, FileText, AlertTriangle, ShieldCheck, Clock, RefreshCw, Mail, CheckCircle } from 'lucide-react';
+import { X, Lock, Zap, Building2, FileText, ShieldCheck, Clock, RefreshCw, Mail, CheckCircle } from 'lucide-react';
 
 interface PaymentModalProps {
   isOpen: boolean;
