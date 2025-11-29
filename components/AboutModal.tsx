@@ -67,7 +67,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             {/* Background Decor */}
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.02] pointer-events-none"></div>
 
-            {/* Rick - Fullstack */}
+            {/* Rick - Owner & Fullstack */}
             <div className="flex flex-col items-center text-center group relative z-10">
               <div className="relative mb-6">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-neutral-800 group-hover:border-neutral-500 transition-colors duration-500 relative z-10">
@@ -82,8 +82,8 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
               
               <h3 className="text-xl text-white font-light tracking-widest mb-1">RICK</h3>
               <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-6">
-                <Code2 size={12} />
-                <span>Fullstack Developer</span>
+                <Crown size={12} />
+                <span>Owner & Fullstack Dev</span>
               </div>
 
               <div className="w-full max-w-[150px] h-px bg-neutral-900 mb-6"></div>
@@ -103,7 +103,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Rigel - CEO */}
+            {/* Rigel - Backend */}
             <div className="flex flex-col items-center text-center group relative z-10">
               <div className="relative mb-6">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-neutral-800 group-hover:border-white transition-colors duration-500 relative z-10">
@@ -118,8 +118,8 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 
               <h3 className="text-xl text-white font-light tracking-widest mb-1">RIGEL</h3>
               <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-6">
-                <Crown size={12} />
-                <span>CEO & Owner</span>
+                <Code2 size={12} />
+                <span>Back-end Developer</span>
               </div>
 
               <div className="w-full max-w-[150px] h-px bg-neutral-900 mb-6"></div>
