@@ -70,7 +70,8 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({ isOpen, onClose, onC
     formData.append('items', JSON.stringify(cart.map(item => ({
       id: item.id,
       name: item.name[lang],
-      price: item.price
+      price: item.price,
+      protocol: item.protocol
     }))));
     formData.append('transactionId', transactionId);
 
