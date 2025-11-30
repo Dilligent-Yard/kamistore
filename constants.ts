@@ -19,6 +19,30 @@ export const PRODUCTS: Product[] = [
     description: { ja: 'アクセスキー • 180日', en: 'Access Key • 180 Days', pt: 'Chave de Acesso • 180 Dias' },
     price: 139.90,
   },
+  {
+    id: 'tinder_platinum_01',
+    name: { ja: 'Tinder Platinum 1週間', en: 'Tinder Platinum 1 Week', pt: 'Tinder Platinum 1 Semana' },
+    description: { ja: 'Tinder Platinum • 7日', en: 'Tinder Platinum • 7 Days', pt: 'Tinder Platinum • 7 Dias' },
+    price: 20.00,
+  },
+  {
+    id: 'tinder_platinum_02',
+    name: { ja: 'Tinder Platinum 1ヶ月', en: 'Tinder Platinum 1 Month', pt: 'Tinder Platinum 1 Mês' },
+    description: { ja: 'Tinder Platinum • 30日', en: 'Tinder Platinum • 30 Days', pt: 'Tinder Platinum • 30 Dias' },
+    price: 49.90,
+  },
+  {
+    id: 'tinder_platinum_03',
+    name: { ja: 'Tinder Platinum 6ヶ月', en: 'Tinder Platinum 6 Months', pt: 'Tinder Platinum 6 Meses' },
+    description: { ja: 'Tinder Platinum • 180日', en: 'Tinder Platinum • 180 Days', pt: 'Tinder Platinum • 180 Dias' },
+    price: 189.90,
+  },
+  {
+    id: 'tinder_platinum_04',
+    name: { ja: 'Tinder Platinum 12ヶ月', en: 'Tinder Platinum 12 Months', pt: 'Tinder Platinum 12 Meses' },
+    description: { ja: 'Tinder Platinum • 365日', en: 'Tinder Platinum • 365 Days', pt: 'Tinder Platinum • 365 Dias' },
+    price: 279.90,
+  },
 ];
 
 export const UI_TEXT: TranslationMap = {
