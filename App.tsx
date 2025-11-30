@@ -5,6 +5,7 @@ import { ProductCard } from './components/ProductCard';
 import { Button } from './components/Button';
 import { PaymentModal } from './components/PaymentModal';
 import { AboutModal } from './components/AboutModal';
+import { AboutPage } from './components/AboutPage';
 import { DisclaimerModal } from './components/DisclaimerModal';
 import { ShoppingBag, X, ArrowRight, CheckCircle, Info } from 'lucide-react';
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
 
   // About State
   const [showAbout, setShowAbout] = useState(false);
+  const [showAboutPage, setShowAboutPage] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -61,6 +63,11 @@ const App: React.FC = () => {
   const formatPrice = (price: number) => {
     return price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
+
+  // If About Page is open, render it instead of main content
+  if (showAboutPage) {
+    return <AboutPage onClose={() => setShowAboutPage(false)} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-white selection:text-black overflow-x-hidden flex flex-col">
@@ -109,7 +116,12 @@ const App: React.FC = () => {
         </div>
         
         <div className="flex items-center gap-6 md:gap-8">
-          {/* Language Switch Removed as per request */}
+          <button 
+            onClick={() => setShowAboutPage(true)}
+            className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors hidden md:block"
+          >
+            [SOBRE NÓS]
+          </button>
           <button 
             onClick={() => setCartOpen(true)}
             className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 hover:text-white transition-colors"
@@ -162,14 +174,21 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Footer Info Link */}
-        <div className="w-full flex justify-center py-12 mt-auto">
+        {/* Footer Info Links */}
+        <div className="w-full flex flex-col md:flex-row justify-center items-center gap-4 py-12 mt-auto">
            <button 
              onClick={() => setShowAbout(true)}
              className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest flex items-center gap-2 transition-colors"
            >
              <Info size={12} />
              <span>System Architects // About</span>
+           </button>
+           <span className="text-neutral-800 hidden md:block">//</span>
+           <button 
+             onClick={() => setShowAboutPage(true)}
+             className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest transition-colors"
+           >
+             Sobre Nós // Informações Detalhadas
            </button>
         </div>
 
