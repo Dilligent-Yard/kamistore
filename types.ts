@@ -11,6 +11,7 @@ export interface Product {
   name: LocalizedString;
   description: LocalizedString;
   price: number;
+  protocol: 'spotify' | 'tinder' | 'access_key';
 }
 
 export interface TranslationMap {
