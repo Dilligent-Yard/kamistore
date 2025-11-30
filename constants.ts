@@ -6,42 +6,49 @@ export const PRODUCTS: Product[] = [
     name: { ja: '1ヶ月', en: '1 Month', pt: '1 Mês' },
     description: { ja: 'アクセスキー • 30日', en: 'Access Key • 30 Days', pt: 'Chave de Acesso • 30 Dias' },
     price: 29.90,
+    protocol: 'spotify',
   },
   {
     id: 'key_03',
     name: { ja: '3ヶ月', en: '3 Months', pt: '3 Meses' },
     description: { ja: 'アクセスキー • 90日', en: 'Access Key • 90 Days', pt: 'Chave de Acesso • 90 Dias' },
     price: 74.90,
+    protocol: 'spotify',
   },
   {
     id: 'key_06',
     name: { ja: '6ヶ月', en: '6 Months', pt: '6 Meses' },
     description: { ja: 'アクセスキー • 180日', en: 'Access Key • 180 Days', pt: 'Chave de Acesso • 180 Dias' },
     price: 139.90,
+    protocol: 'spotify',
   },
   {
     id: 'tinder_platinum_01',
     name: { ja: 'Tinder Platinum 1週間', en: 'Tinder Platinum 1 Week', pt: 'Tinder Platinum 1 Semana' },
     description: { ja: 'Tinder Platinum • 7日', en: 'Tinder Platinum • 7 Days', pt: 'Tinder Platinum • 7 Dias' },
     price: 20.00,
+    protocol: 'tinder',
   },
   {
     id: 'tinder_platinum_02',
     name: { ja: 'Tinder Platinum 1ヶ月', en: 'Tinder Platinum 1 Month', pt: 'Tinder Platinum 1 Mês' },
     description: { ja: 'Tinder Platinum • 30日', en: 'Tinder Platinum • 30 Days', pt: 'Tinder Platinum • 30 Dias' },
     price: 49.90,
+    protocol: 'tinder',
   },
   {
     id: 'tinder_platinum_03',
     name: { ja: 'Tinder Platinum 6ヶ月', en: 'Tinder Platinum 6 Months', pt: 'Tinder Platinum 6 Meses' },
     description: { ja: 'Tinder Platinum • 180日', en: 'Tinder Platinum • 180 Days', pt: 'Tinder Platinum • 180 Dias' },
     price: 189.90,
+    protocol: 'tinder',
   },
   {
     id: 'tinder_platinum_04',
     name: { ja: 'Tinder Platinum 12ヶ月', en: 'Tinder Platinum 12 Months', pt: 'Tinder Platinum 12 Meses' },
     description: { ja: 'Tinder Platinum • 365日', en: 'Tinder Platinum • 365 Days', pt: 'Tinder Platinum • 365 Dias' },
     price: 279.90,
+    protocol: 'tinder',
   },
 ];
 
@@ -58,6 +65,7 @@ export const UI_TEXT: TranslationMap = {
   currency: { ja: 'R$', en: 'R$', pt: 'R$' },
   securePayment: { ja: '安全なプロトコル', en: 'Secure Protocol', pt: 'Protocolo Seguro' },
   spotifyLabel: { ja: 'SPOTIFY', en: 'SPOTIFY', pt: 'SPOTIFY' },
+  tinderLabel: { ja: 'TINDER', en: 'TINDER', pt: 'TINDER' },
   digitalAsset: { ja: 'デジタル資産', en: 'DIGITAL ASSET', pt: 'ATIVO DIGITAL' },
   
   // Payment Modal
