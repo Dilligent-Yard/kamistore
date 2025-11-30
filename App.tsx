@@ -209,7 +209,9 @@ const App: React.FC = () => {
                     <div>
                       <span className="block font-mono text-[9px] text-neutral-500 mb-1">ID: {item.id.toUpperCase()}</span>
                       <p className="text-lg font-light text-white tracking-tight">{item.name[lang]}</p>
-                      <p className="text-[10px] text-neutral-400 mt-1 uppercase">Spotify Protocol</p>
+                      <p className="text-[10px] text-neutral-400 mt-1 uppercase">
+                        {item.protocol === 'tinder' ? UI_TEXT.tinderLabel[lang] : UI_TEXT.spotifyLabel[lang]} Protocol
+                      </p>
                     </div>
                     <div className="flex flex-col items-end gap-4">
                       <p className="text-lg font-mono text-neutral-300">{formatPrice(item.price)}</p>
