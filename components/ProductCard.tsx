@@ -39,7 +39,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, lang, index, 
 
         <div className="relative z-10">
           <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-[0.2em] mb-2 block">
-            {UI_TEXT.digitalAsset[lang]} // {UI_TEXT.spotifyLabel[lang]}
+            {UI_TEXT.digitalAsset[lang]} // {product.protocol === 'tinder' ? UI_TEXT.tinderLabel[lang] : UI_TEXT.spotifyLabel[lang]}
           </span>
           
           <h3 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
