@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, Shield, Scale, Users, Network, FileText, AlertTriangle, Code2, Lock, Sparkles } from 'lucide-react';
 
 interface AboutPageProps {
@@ -6,32 +6,44 @@ interface AboutPageProps {
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
-      {/* Enhanced Background Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none"></div>
+      {/* Enhanced Background Pattern with Animation */}
+      <div className="fixed inset-0 bg-[radial-gradient(#1a1a1a_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }}></div>
       <div className="fixed inset-0 bg-gradient-to-br from-neutral-950/50 via-transparent to-neutral-950/30 pointer-events-none"></div>
       
-      {/* Animated Grid Overlay */}
+      {/* Animated Grid Overlay with subtle movement */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] [background-size:48px_48px] opacity-[0.02] pointer-events-none"></div>
       
-      {/* Header */}
-      <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-4 md:px-8 md:py-6 flex justify-between items-center bg-black/90 backdrop-blur-xl border-b border-neutral-900/50">
+      {/* Ambient Light Effects */}
+      <div className="fixed top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[120px] pointer-events-none opacity-30 animate-pulse" style={{ animationDuration: '6s' }}></div>
+      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-white/3 rounded-full blur-[120px] pointer-events-none opacity-20 animate-pulse" style={{ animationDuration: '10s' }}></div>
+      
+      {/* Enhanced Header with Glassmorphism */}
+      <nav className={`fixed top-0 left-0 right-0 z-40 px-6 py-4 md:px-8 md:py-6 flex justify-between items-center bg-black/80 backdrop-blur-2xl border-b border-neutral-900/50 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}>
         <div className="flex flex-col group">
-          <div className="text-sm font-bold tracking-[0.25em] uppercase text-white mix-blend-difference cursor-pointer transition-all duration-300 hover:tracking-[0.3em]" onClick={onClose}>
-            KĀMI.<span className="text-neutral-600 group-hover:text-neutral-500 transition-colors">SYS</span>
+          <div className="text-sm font-bold tracking-[0.25em] uppercase text-white mix-blend-difference cursor-pointer transition-all duration-500 hover:tracking-[0.3em] relative" onClick={onClose}>
+            <span className="relative z-10">KĀMI.<span className="text-neutral-600 group-hover:text-neutral-500 transition-colors duration-500">SYS</span></span>
+            <span className="absolute inset-0 bg-white/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
           </div>
-          <span className="text-[8px] font-mono text-neutral-500 mt-1 hidden md:block">
+          <span className="text-[8px] font-mono text-neutral-500 mt-1 hidden md:block transition-colors group-hover:text-neutral-400">
             V.2.0.4 // ABOUT
           </span>
         </div>
         
         <button 
           onClick={onClose}
-          className="text-neutral-500 hover:text-white transition-all duration-300 p-2 hover:bg-neutral-900/50 rounded-sm"
+          className="text-neutral-500 hover:text-white transition-all duration-300 p-2 hover:bg-neutral-900/50 rounded-sm relative group/btn"
           aria-label="Fechar"
         >
-          <X strokeWidth={1.5} size={24} />
+          <div className="absolute inset-0 bg-white/5 rounded-sm opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 blur-sm"></div>
+          <X strokeWidth={1.5} size={24} className="relative z-10" />
         </button>
       </nav>
 
@@ -39,29 +51,37 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
       <main className="pt-32 pb-20 px-6 md:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           
-          {/* Enhanced Hero Section */}
-          <div className="mb-20 md:mb-32 border-l border-neutral-800/50 pl-6 md:pl-12 py-8 relative group">
+          {/* Enhanced Hero Section with Staggered Animation */}
+          <div className={`mb-20 md:mb-32 border-l border-neutral-800/50 pl-6 md:pl-12 py-8 relative group transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="absolute -left-1 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-neutral-800 to-transparent group-hover:via-neutral-700 transition-colors duration-500"></div>
             <div className="absolute left-0 top-0 w-1 h-8 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             
             <div className="relative">
-              <h1 className="text-[12vw] md:text-[8vw] leading-[0.85] font-black tracking-tighter text-white uppercase mb-6 opacity-90 relative">
+              <h1 className={`text-[12vw] md:text-[8vw] leading-[0.85] font-black tracking-tighter text-white uppercase mb-6 relative transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <span className="relative inline-block">
-                  Sobre<span className="text-neutral-800">.</span>
-                  <span className="absolute -top-2 -right-4 opacity-20">
-                    <Sparkles size={16} className="text-white animate-pulse" />
+                  <span className="relative z-10">Sobre<span className="text-neutral-800">.</span></span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></span>
+                  <span className="absolute -top-2 -right-4 opacity-20 animate-pulse">
+                    <Sparkles size={16} className="text-white" style={{ animationDuration: '3s' }} />
                   </span>
                 </span>
               </h1>
               
-              <div className="mt-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-12">
-                <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest max-w-xs leading-relaxed">
+              <div className={`mt-8 flex flex-col md:flex-row md:items-center gap-4 md:gap-12 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest max-w-xs leading-relaxed group-hover:text-neutral-400 transition-colors duration-500">
                   INFORMAÇÕES INSTITUCIONAIS // ESTRUTURA CORPORATIVA
                 </p>
-                <div className="h-px w-12 bg-gradient-to-r from-neutral-800 to-transparent hidden md:block"></div>
+                <div className="h-px w-12 bg-gradient-to-r from-neutral-800 to-transparent hidden md:block group-hover:w-16 transition-all duration-500"></div>
                 <div className="flex gap-4">
-                  <span className="px-3 py-1.5 border border-neutral-800/50 text-[9px] font-mono text-neutral-400 hover:border-neutral-700 hover:text-neutral-300 transition-all duration-300 cursor-default">COMPLIANCE</span>
-                  <span className="px-3 py-1.5 border border-neutral-800/50 text-[9px] font-mono text-neutral-400 hover:border-neutral-700 hover:text-neutral-300 transition-all duration-300 cursor-default">LEGAL</span>
+                  <span className="px-3 py-1.5 border border-neutral-800/50 text-[9px] font-mono text-neutral-400 hover:border-neutral-700 hover:text-neutral-300 hover:bg-neutral-950/50 transition-all duration-300 cursor-default relative overflow-hidden group/badge">
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700"></span>
+                    <span className="relative z-10">COMPLIANCE</span>
+                  </span>
+                  <span className="px-3 py-1.5 border border-neutral-800/50 text-[9px] font-mono text-neutral-400 hover:border-neutral-700 hover:text-neutral-300 hover:bg-neutral-950/50 transition-all duration-300 cursor-default relative overflow-hidden group/badge">
+                    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700"></span>
+                    <span className="relative z-10">LEGAL</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -81,14 +101,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
               <span className="animate-pulse w-1.5 h-1.5 bg-green-500 rounded-full ml-auto shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
             </div>
             
-            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card">
-              {/* Enhanced Decorative Number */}
-              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-colors duration-700">
+            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card hover:shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Enhanced Decorative Number with Animation */}
+              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-50">
                 01
               </span>
               
-              {/* Glow Effect */}
+              {/* Multi-layer Glow Effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 via-transparent to-neutral-900/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               
               <div className="relative z-10 p-8 md:p-12 space-y-6">
                 <div className="flex items-start gap-4 mb-6">
@@ -134,14 +159,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
               <span className="animate-pulse w-1.5 h-1.5 bg-green-500 rounded-full ml-auto shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
             </div>
             
-            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card">
-              {/* Enhanced Decorative Number */}
-              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-colors duration-700">
+            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card hover:shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Enhanced Decorative Number with Animation */}
+              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-50">
                 02
               </span>
               
-              {/* Glow Effect */}
+              {/* Multi-layer Glow Effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 via-transparent to-neutral-900/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               
               <div className="relative z-10 p-8 md:p-12 space-y-8">
                 <div className="flex items-start gap-4">
@@ -157,12 +187,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div className="border border-neutral-900/50 bg-gradient-to-br from-neutral-950/60 to-neutral-950/40 p-6 hover:border-neutral-800/50 hover:from-neutral-950/80 hover:to-neutral-950/60 transition-all duration-500 group/sub relative overflow-hidden">
+                  <div className="border border-neutral-900/50 bg-gradient-to-br from-neutral-950/60 to-neutral-950/40 p-6 hover:border-neutral-800/50 hover:from-neutral-950/80 hover:to-neutral-950/60 transition-all duration-500 group/sub relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]">
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 to-transparent opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     <div className="relative z-10">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="p-2.5 border border-neutral-800/50 bg-neutral-900/30 group-hover/sub:border-neutral-700 group-hover/sub:bg-neutral-900/50 transition-all duration-300 rounded-sm">
-                          <Scale size={16} className="text-neutral-400 group-hover/sub:text-neutral-300 transition-colors" />
+                        <div className="p-2.5 border border-neutral-800/50 bg-neutral-900/30 group-hover/sub:border-neutral-700 group-hover/sub:bg-neutral-900/50 transition-all duration-300 rounded-sm relative overflow-hidden group/icon">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300"></div>
+                          <Scale size={16} className="text-neutral-400 group-hover/sub:text-neutral-300 transition-colors relative z-10" />
                         </div>
                         <div className="flex-1">
                           <h3 className="text-white font-mono text-[10px] uppercase tracking-widest mb-3 group-hover/sub:text-neutral-100 transition-colors">
@@ -175,18 +207,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                         </div>
                       </div>
                       <div className="flex gap-2 mt-4">
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 transition-all cursor-default">CDC</span>
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 transition-all cursor-default">LGPD</span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">CDC</span>
+                        </span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">LGPD</span>
+                        </span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="border border-neutral-900/50 bg-gradient-to-br from-neutral-950/60 to-neutral-950/40 p-6 hover:border-neutral-800/50 hover:from-neutral-950/80 hover:to-neutral-950/60 transition-all duration-500 group/sub relative overflow-hidden">
+                  <div className="border border-neutral-900/50 bg-gradient-to-br from-neutral-950/60 to-neutral-950/40 p-6 hover:border-neutral-800/50 hover:from-neutral-950/80 hover:to-neutral-950/60 transition-all duration-500 group/sub relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]">
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 to-transparent opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     <div className="relative z-10">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="p-2.5 border border-neutral-800/50 bg-neutral-900/30 group-hover/sub:border-neutral-700 group-hover/sub:bg-neutral-900/50 transition-all duration-300 rounded-sm">
-                          <Users size={16} className="text-neutral-400 group-hover/sub:text-neutral-300 transition-colors" />
+                        <div className="p-2.5 border border-neutral-800/50 bg-neutral-900/30 group-hover/sub:border-neutral-700 group-hover/sub:bg-neutral-900/50 transition-all duration-300 rounded-sm relative overflow-hidden group/icon">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300"></div>
+                          <Users size={16} className="text-neutral-400 group-hover/sub:text-neutral-300 transition-colors relative z-10" />
                         </div>
                         <div className="flex-1">
                           <h3 className="text-white font-mono text-[10px] uppercase tracking-widest mb-3 group-hover/sub:text-neutral-100 transition-colors">
@@ -199,8 +239,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                         </div>
                       </div>
                       <div className="flex gap-2 mt-4">
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 transition-all cursor-default">VERIFIED</span>
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 transition-all cursor-default">TRACEABLE</span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">VERIFIED</span>
+                        </span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-600 uppercase hover:border-neutral-700 hover:text-neutral-500 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">TRACEABLE</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -223,14 +269,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
               <span className="animate-pulse w-1.5 h-1.5 bg-green-500 rounded-full ml-auto shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
             </div>
             
-            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card">
-              {/* Enhanced Decorative Number */}
-              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-colors duration-700">
+            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card hover:shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Enhanced Decorative Number with Animation */}
+              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-50">
                 03
               </span>
               
-              {/* Glow Effect */}
+              {/* Multi-layer Glow Effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 via-transparent to-neutral-900/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               
               <div className="relative z-10 p-8 md:p-12 space-y-6">
                 <div className="flex items-start gap-4">
@@ -254,12 +305,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                 </div>
                 
                 <div className="mt-8 border-t border-neutral-900/50 pt-6 group-hover/card:border-neutral-800/50 transition-colors">
-                  <div className="bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 border border-neutral-800/50 p-6 relative overflow-hidden group/tech hover:border-neutral-700/50 transition-all duration-500">
+                  <div className="bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 border border-neutral-800/50 p-6 relative overflow-hidden group/tech hover:border-neutral-700/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,0,0,0.4)]">
                     <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-neutral-900/30 to-transparent pointer-events-none opacity-0 group-hover/tech:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/tech:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     <div className="relative z-10">
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="p-1.5 border border-neutral-800/50 rounded-sm">
-                          <Code2 size={12} className="text-neutral-500" />
+                        <div className="p-1.5 border border-neutral-800/50 rounded-sm relative overflow-hidden group/icon-tech hover:border-neutral-700 transition-all duration-300">
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-tech:opacity-100 transition-opacity duration-300"></div>
+                          <Code2 size={12} className="text-neutral-500 group-hover/icon-tech:text-neutral-400 transition-colors relative z-10" />
                         </div>
                         <p className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest">
                           // ARQUITETURA TÉCNICA
@@ -270,10 +323,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                         Fulfillment automatizado através de APIs integradas e protocolos de sincronização assíncrona.
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 transition-all cursor-default">DISTRIBUTED</span>
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 transition-all cursor-default">REAL-TIME</span>
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 transition-all cursor-default">API</span>
-                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 transition-all cursor-default">SYNC</span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">DISTRIBUTED</span>
+                        </span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">REAL-TIME</span>
+                        </span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">API</span>
+                        </span>
+                        <span className="px-2.5 py-1 border border-neutral-800/50 text-[8px] font-mono text-neutral-500 uppercase hover:border-neutral-700 hover:text-neutral-400 hover:bg-neutral-950/30 transition-all cursor-default relative overflow-hidden group/badge">
+                          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-500"></span>
+                          <span className="relative z-10">SYNC</span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -296,14 +361,19 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
               <span className="animate-pulse w-1.5 h-1.5 bg-green-500 rounded-full ml-auto shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
             </div>
             
-            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card">
-              {/* Enhanced Decorative Number */}
-              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-colors duration-700">
+            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card hover:shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Enhanced Decorative Number with Animation */}
+              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-50">
                 04
               </span>
               
-              {/* Glow Effect */}
+              {/* Multi-layer Glow Effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 via-transparent to-neutral-900/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               
               <div className="relative z-10 p-8 md:p-12 space-y-6">
                 <div className="flex items-start gap-4">
@@ -314,12 +384,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                   </p>
                 </div>
                 
-                <div className="mt-8 border border-neutral-800/50 bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 p-8 relative overflow-hidden group/link hover:border-neutral-700/50 transition-all duration-500">
+                <div className="mt-8 border border-neutral-800/50 bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 p-8 relative overflow-hidden group/link hover:border-neutral-700/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,0,0,0.4)]">
                   <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-neutral-900/20 to-transparent pointer-events-none opacity-0 group-hover/link:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/link:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   <div className="relative z-10">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-1.5 border border-neutral-800/50 rounded-sm">
-                        <Lock size={14} className="text-neutral-500" />
+                      <div className="p-1.5 border border-neutral-800/50 rounded-sm relative overflow-hidden group/icon-lock hover:border-neutral-700 transition-all duration-300">
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-lock:opacity-100 transition-opacity duration-300"></div>
+                        <Lock size={14} className="text-neutral-500 group-hover/icon-lock:text-neutral-400 transition-colors relative z-10" />
                       </div>
                       <p className="text-white font-mono text-[10px] uppercase tracking-widest">
                         Teve problema com algum dos vendedores?
@@ -329,13 +401,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                       href="https://www.consumidor.gov.br/pages/principal/index.jsf" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 px-6 py-3.5 border border-neutral-800/50 bg-gradient-to-r from-neutral-900/50 to-neutral-900/30 hover:from-neutral-800/60 hover:to-neutral-800/40 hover:border-neutral-700/50 transition-all duration-300 group/btn relative overflow-hidden"
+                      className="inline-flex items-center gap-3 px-6 py-3.5 border border-neutral-800/50 bg-gradient-to-r from-neutral-900/50 to-neutral-900/30 hover:from-neutral-800/60 hover:to-neutral-800/40 hover:border-neutral-700/50 transition-all duration-300 group/btn relative overflow-hidden hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]"
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></span>
-                      <span className="text-white text-sm font-mono uppercase tracking-wider relative z-10">
+                      <span className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></span>
+                      <span className="text-white text-sm font-mono uppercase tracking-wider relative z-10 group-hover/btn:text-neutral-100 transition-colors">
                         Registrar denúncia no Consumidor.gov.br
                       </span>
-                      <span className="text-neutral-500 group-hover/btn:text-white transition-colors text-xs relative z-10 transform group-hover/btn:translate-x-1">↗</span>
+                      <span className="text-neutral-500 group-hover/btn:text-white transition-all text-xs relative z-10 transform group-hover/btn:translate-x-1 group-hover/btn:scale-110">↗</span>
                     </a>
                     <div className="mt-6 pt-6 border-t border-neutral-900/50">
                       <p className="text-neutral-500 text-xs leading-relaxed font-mono group-hover/link:text-neutral-400 transition-colors">
@@ -351,17 +424,24 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
           </section>
 
           {/* Enhanced Footer */}
-          <div className="mt-20 pt-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className={`mt-20 pt-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-              <span className="text-[9px] text-neutral-700 font-mono hover:text-neutral-600 transition-colors cursor-default">EST. 2024</span>
+              <span className="text-[9px] text-neutral-700 font-mono hover:text-neutral-600 transition-colors cursor-default relative group/footer">
+                <span className="relative z-10">EST. 2024</span>
+                <span className="absolute inset-0 bg-white/5 blur-sm opacity-0 group-hover/footer:opacity-100 transition-opacity duration-300"></span>
+              </span>
               <span className="text-[9px] text-neutral-700 font-mono hidden md:block">//</span>
-              <span className="text-[9px] text-neutral-700 font-mono hover:text-neutral-600 transition-colors cursor-default">TOKYO // BRASIL</span>
+              <span className="text-[9px] text-neutral-700 font-mono hover:text-neutral-600 transition-colors cursor-default relative group/footer">
+                <span className="relative z-10">TOKYO // BRASIL</span>
+                <span className="absolute inset-0 bg-white/5 blur-sm opacity-0 group-hover/footer:opacity-100 transition-opacity duration-300"></span>
+              </span>
             </div>
             <button 
               onClick={onClose}
-              className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest transition-all duration-300 px-4 py-2 border border-transparent hover:border-neutral-800/50 hover:bg-neutral-950/50 rounded-sm"
+              className="text-[10px] font-mono text-neutral-600 hover:text-white uppercase tracking-widest transition-all duration-300 px-4 py-2 border border-transparent hover:border-neutral-800/50 hover:bg-neutral-950/50 rounded-sm relative overflow-hidden group/return"
             >
-              [RETORNAR]
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover/return:translate-x-[100%] transition-transform duration-700"></span>
+              <span className="relative z-10">[RETORNAR]</span>
             </button>
           </div>
 
