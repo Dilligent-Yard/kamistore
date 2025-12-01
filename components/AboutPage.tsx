@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, Shield, Scale, Users, Network, FileText, AlertTriangle, Code2, Lock, Sparkles } from 'lucide-react';
+import { X, Shield, Scale, Users, Network, FileText, AlertTriangle, Code2, Lock, Sparkles, Mail, MessageCircle } from 'lucide-react';
 
 interface AboutPageProps {
   onClose: () => void;
@@ -48,11 +48,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
       </nav>
 
       {/* Content */}
-      <main className="pt-32 pb-20 px-6 md:px-12 relative z-10">
-        <div className="max-w-6xl mx-auto">
+      <main className="pt-32 pb-24 px-6 md:px-12 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-16">
           
           {/* Enhanced Hero Section with Staggered Animation */}
-          <div className={`mb-20 md:mb-32 border-l border-neutral-800/50 pl-6 md:pl-12 py-8 relative group transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+          <div className={`border-l border-neutral-800/50 pl-6 md:pl-12 py-8 md:py-12 relative group transition-all duration-1000 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="absolute -left-1 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-neutral-800 to-transparent group-hover:via-neutral-700 transition-colors duration-500"></div>
             <div className="absolute left-0 top-0 w-1 h-8 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute left-0 top-0 w-px h-full bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -88,11 +88,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
           </div>
 
           {/* Enhanced Conglomerate Section */}
-          <section className="mb-20 relative group">
-            <div className="flex items-center gap-3 mb-6 border-b border-neutral-900/50 pb-4">
+          <section className="relative group">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-900/50 pb-5">
               <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
-                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-colors">
-                  <Network size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors" />
+                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-all duration-300 relative overflow-hidden group/icon-header">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-header:opacity-100 transition-opacity duration-300"></div>
+                  <Network size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors relative z-10" />
                 </div>
                 <h2 className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase group-hover:text-neutral-300 transition-colors">
                   /// ESTRUTURA CORPORATIVA
@@ -115,8 +116,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
               <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
               
-              <div className="relative z-10 p-8 md:p-12 space-y-6">
-                <div className="flex items-start gap-4 mb-6">
+              <div className="relative z-10 p-8 md:p-12 space-y-8">
+                <div className="flex items-start gap-4">
                   <div className="w-px h-12 bg-gradient-to-b from-neutral-800/50 via-neutral-700/30 to-transparent mt-1 group-hover/card:from-neutral-700 group-hover/card:via-neutral-600/50 transition-colors duration-500"></div>
                   <div className="flex-1 space-y-4">
                     <p className="text-neutral-300 leading-relaxed text-sm md:text-base group-hover/card:text-neutral-200 transition-colors">
@@ -134,7 +135,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
                   </div>
                 </div>
                 
-                <div className="border-t border-neutral-900/50 pt-6 mt-6 group-hover/card:border-neutral-800/50 transition-colors">
+                <div className="border-t border-neutral-900/50 pt-8 mt-8 group-hover/card:border-neutral-800/50 transition-colors">
                   <p className="text-neutral-500 text-xs leading-relaxed font-mono group-hover/card:text-neutral-400 transition-colors">
                     Esta arquitetura corporativa permite que cada unidade de negócio mantenha sua identidade e foco operacional, 
                     enquanto se beneficia de recursos compartilhados e expertise consolidada em áreas críticas como compliance, 
@@ -146,11 +147,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
           </section>
 
           {/* Enhanced P2P System Section */}
-          <section className="mb-20 relative group">
-            <div className="flex items-center gap-3 mb-6 border-b border-neutral-900/50 pb-4">
+          <section className="relative group">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-900/50 pb-5">
               <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
-                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-colors">
-                  <Shield size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors" />
+                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-all duration-300 relative overflow-hidden group/icon-header">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-header:opacity-100 transition-opacity duration-300"></div>
+                  <Shield size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors relative z-10" />
                 </div>
                 <h2 className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase group-hover:text-neutral-300 transition-colors">
                   /// SISTEMA PEER-TO-PEER
@@ -256,11 +258,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
           </section>
 
           {/* Enhanced Dropshipping Technical Section */}
-          <section className="mb-20 relative group">
-            <div className="flex items-center gap-3 mb-6 border-b border-neutral-900/50 pb-4">
+          <section className="relative group">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-900/50 pb-5">
               <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
-                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-colors">
-                  <FileText size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors" />
+                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-all duration-300 relative overflow-hidden group/icon-header">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-header:opacity-100 transition-opacity duration-300"></div>
+                  <FileText size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors relative z-10" />
                 </div>
                 <h2 className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase group-hover:text-neutral-300 transition-colors">
                   /// MODELO DE DISTRIBUIÇÃO
@@ -348,11 +351,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
           </section>
 
           {/* Enhanced Complaint Section */}
-          <section className="mb-20 relative group">
-            <div className="flex items-center gap-3 mb-6 border-b border-neutral-900/50 pb-4">
+          <section className="relative group">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-900/50 pb-5">
               <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
-                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-colors">
-                  <AlertTriangle size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors" />
+                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-all duration-300 relative overflow-hidden group/icon-header">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-header:opacity-100 transition-opacity duration-300"></div>
+                  <AlertTriangle size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors relative z-10" />
                 </div>
                 <h2 className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase group-hover:text-neutral-300 transition-colors">
                   /// SUPORTE E DENÚNCIAS
@@ -423,8 +427,115 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onClose }) => {
             </div>
           </section>
 
+          {/* Enhanced Contact Section */}
+          <section className="relative group">
+            <div className="flex items-center gap-3 mb-8 border-b border-neutral-900/50 pb-5">
+              <div className="flex items-center gap-3 group-hover:gap-4 transition-all duration-300">
+                <div className="p-1.5 border border-neutral-800/50 rounded-sm group-hover:border-neutral-700 transition-all duration-300 relative overflow-hidden group/icon-header">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon-header:opacity-100 transition-opacity duration-300"></div>
+                  <MessageCircle size={14} className="text-neutral-500 group-hover:text-neutral-400 transition-colors relative z-10" />
+                </div>
+                <h2 className="text-[10px] font-mono text-neutral-400 tracking-widest uppercase group-hover:text-neutral-300 transition-colors">
+                  /// CONTATO E SUPORTE
+                </h2>
+              </div>
+              <span className="animate-pulse w-1.5 h-1.5 bg-green-500 rounded-full ml-auto shadow-[0_0_8px_rgba(34,197,94,0.5)]"></span>
+            </div>
+            
+            <div className="relative border border-neutral-900/50 bg-gradient-to-br from-neutral-950/40 via-neutral-950/30 to-neutral-950/40 hover:border-neutral-800/50 hover:from-neutral-950/60 hover:via-neutral-950/40 hover:to-neutral-950/60 transition-all duration-700 overflow-hidden group/card hover:shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Enhanced Decorative Number with Animation */}
+              <span className="absolute -right-8 -top-8 text-[180px] font-black text-neutral-900/30 pointer-events-none select-none font-mono leading-none group-hover/card:text-neutral-900/40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-50">
+                05
+              </span>
+              
+              {/* Multi-layer Glow Effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 via-transparent to-neutral-900/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+              
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-16 h-px bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute top-0 left-0 w-px h-16 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+              
+              <div className="relative z-10 p-8 md:p-12 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-px h-12 bg-gradient-to-b from-neutral-800/50 via-neutral-700/30 to-transparent mt-1 group-hover/card:from-neutral-700 group-hover/card:via-neutral-600/50 transition-colors duration-500"></div>
+                  <div className="flex-1 space-y-4">
+                    <p className="text-neutral-300 leading-relaxed text-sm md:text-base group-hover/card:text-neutral-200 transition-colors">
+                      Devido à natureza arquitetural da <span className="text-white font-semibold relative">
+                        Kāmi como conglomerado de vendedores independentes
+                        <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity"></span>
+                      </span>, 
+                      existe uma complexidade operacional inerente ao estabelecimento de canais de comunicação diretos com a entidade corporativa. 
+                      A estrutura distribuída e descentralizada da plataforma, onde cada vendedor opera com autonomia, 
+                      cria desafios logísticos para a centralização de atendimento ao cliente.
+                    </p>
+                    <p className="text-neutral-400 text-sm leading-relaxed group-hover/card:text-neutral-300 transition-colors">
+                      Para contato institucional, a Kāmi disponibiliza canais oficiais de comunicação gerenciados diretamente 
+                      pela equipe de desenvolvimento e administração da plataforma, permitindo interação com a estrutura central 
+                      do conglomerado.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 border-t border-neutral-900/50 pt-8 group-hover/card:border-neutral-800/50 transition-colors">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Email Contact */}
+                    <div className="border border-neutral-800/50 bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 p-6 relative overflow-hidden group/contact hover:border-neutral-700/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 to-transparent opacity-0 group-hover/contact:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/contact:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="p-2 border border-neutral-800/50 bg-neutral-900/30 group-hover/contact:border-neutral-700 group-hover/contact:bg-neutral-900/50 transition-all duration-300 rounded-sm relative overflow-hidden group/icon">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300"></div>
+                            <Mail size={16} className="text-neutral-400 group-hover/contact:text-neutral-300 transition-colors relative z-10" />
+                          </div>
+                          <h3 className="text-white font-mono text-[10px] uppercase tracking-widest group-hover/contact:text-neutral-100 transition-colors">
+                            EMAIL INSTITUCIONAL
+                          </h3>
+                        </div>
+                        <a 
+                          href="mailto:kamiselling@proton.me"
+                          className="text-neutral-400 text-sm font-mono group-hover/contact:text-neutral-300 transition-colors hover:text-white inline-flex items-center gap-2 relative group/email"
+                        >
+                          <span className="relative z-10 group-hover/email:translate-x-1 transition-transform duration-300">kamiselling@proton.me</span>
+                          <span className="text-neutral-600 group-hover/contact:text-neutral-400 group-hover/email:text-white transition-all text-xs relative z-10 transform group-hover/email:translate-x-1 group-hover/email:scale-110">↗</span>
+                        </a>
+                        <p className="text-neutral-500 text-xs leading-relaxed font-mono mt-3 group-hover/contact:text-neutral-400 transition-colors">
+                          Canal oficial para comunicação institucional e suporte técnico.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Discord Contact */}
+                    <div className="border border-neutral-800/50 bg-gradient-to-br from-neutral-950/80 to-neutral-950/60 p-6 relative overflow-hidden group/contact hover:border-neutral-700/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/0 to-transparent opacity-0 group-hover/contact:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/10 via-transparent to-transparent opacity-0 group-hover/contact:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="p-2 border border-neutral-800/50 bg-neutral-900/30 group-hover/contact:border-neutral-700 group-hover/contact:bg-neutral-900/50 transition-all duration-300 rounded-sm relative overflow-hidden group/icon">
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-300"></div>
+                            <MessageCircle size={16} className="text-neutral-400 group-hover/contact:text-neutral-300 transition-colors relative z-10" />
+                          </div>
+                          <h3 className="text-white font-mono text-[10px] uppercase tracking-widest group-hover/contact:text-neutral-100 transition-colors">
+                            DISCORD OFICIAL
+                          </h3>
+                        </div>
+                        <p className="text-neutral-400 text-sm font-mono group-hover/contact:text-neutral-300 transition-colors">
+                          Contato direto com o Discord dos desenvolvedores e administradores da plataforma.
+                        </p>
+                        <p className="text-neutral-500 text-xs leading-relaxed font-mono mt-3 group-hover/contact:text-neutral-400 transition-colors">
+                          Comunicação direta com a equipe de desenvolvimento e gestão corporativa através do Discord.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Enhanced Footer */}
-          <div className={`mt-20 pt-8 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center gap-4 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`pt-12 border-t border-neutral-900/50 flex flex-col md:flex-row justify-between items-center gap-6 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <div className="flex flex-col md:flex-row gap-4 md:gap-8">
               <span className="text-[9px] text-neutral-700 font-mono hover:text-neutral-600 transition-colors cursor-default relative group/footer">
                 <span className="relative z-10">EST. 2024</span>
