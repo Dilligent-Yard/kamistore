@@ -1,7 +1,7 @@
 import React from 'react';
 import { Product, Language } from '../types';
 import { UI_TEXT } from '../constants';
-import { Plus, Disc } from 'lucide-react';
+import { Plus, Disc, Server, AlertCircle } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
@@ -15,14 +15,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, lang, index, 
     return price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
 
+  const isSharedAccount = product.id === 'xbox_gpu_account';
+
   return (
     <div className="group relative border border-neutral-900 bg-neutral-950/30 hover:bg-neutral-900/50 transition-colors duration-500 flex flex-col h-[400px]">
       
       {/* Top Technical Bar */}
       <div className="flex justify-between items-center px-6 py-4 border-b border-neutral-900">
-        <span className="font-mono text-[9px] text-neutral-500 uppercase tracking-widest">
-          ID: {product.id.toUpperCase()}
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-[9px] text-neutral-500 uppercase tracking-widest">
+            ID: {product.id.toUpperCase()}
+          </span>
+          {isSharedAccount && (
+            <span className="px-1.5 py-0.5 border border-neutral-800 bg-neutral-900/30 text-[8px] font-mono text-neutral-400 uppercase tracking-widest">
+              SHARED
+            </span>
+          )}
+        </div>
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-green-900 group-hover:bg-green-500 transition-colors duration-500"></div>
           <span className="font-mono text-[9px] text-neutral-500 uppercase">ONLINE</span>
@@ -37,21 +46,58 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, lang, index, 
           0{index + 1}
         </span>
 
+        {/* System indicator for shared accounts - very subtle */}
+        {isSharedAccount && (
+          <div className="absolute top-4 right-4 flex items-center gap-1 opacity-30 group-hover:opacity-50 transition-opacity">
+            <Server size={9} className="text-neutral-500" strokeWidth={1.5} />
+            <span className="font-mono text-[7px] text-neutral-600 uppercase tracking-widest">SYS</span>
+          </div>
+        )}
+
         <div className="relative z-10">
           <span className="font-mono text-[10px] text-neutral-400 uppercase tracking-[0.2em] mb-2 block">
-            {UI_TEXT.digitalAsset[lang]} // {product.protocol === 'tinder' ? UI_TEXT.tinderLabel[lang] : UI_TEXT.spotifyLabel[lang]}
+            {UI_TEXT.digitalAsset[lang]} // {product.protocol === 'tinder' ? UI_TEXT.tinderLabel[lang] : product.protocol === 'xbox' ? UI_TEXT.xboxLabel[lang] : UI_TEXT.spotifyLabel[lang]}
           </span>
           
           <h3 className="text-4xl md:text-5xl font-light text-white tracking-tight mb-4">
             {product.name[lang]}
           </h3>
           
-          <div className="flex items-center gap-2 text-neutral-500">
-             <Disc size={12} className="animate-spin-slow" />
-             <p className="text-[10px] font-mono uppercase tracking-widest">
-              {product.description[lang]}
-            </p>
-          </div>
+          {isSharedAccount ? (
+            <div className="border-l border-neutral-800 pl-4 space-y-2.5">
+              <div className="flex items-start gap-2.5 text-neutral-500">
+                <Server size={9} className="mt-0.5 text-neutral-600 shrink-0" strokeWidth={1.5} />
+                <p className="text-[9px] font-mono uppercase tracking-widest leading-relaxed">
+                  Conta Compartilhada • Sistema Kami
+                </p>
+              </div>
+              <div className="flex items-start gap-2.5 text-neutral-500">
+                <Server size={9} className="mt-0.5 text-neutral-600 shrink-0" strokeWidth={1.5} />
+                <p className="text-[9px] font-mono uppercase tracking-widest leading-relaxed">
+                  Distribuição Automatizada • Protocolo Assíncrono
+                </p>
+              </div>
+              <div className="flex items-start gap-2.5 text-neutral-500">
+                <Server size={9} className="mt-0.5 text-neutral-600 shrink-0" strokeWidth={1.5} />
+                <p className="text-[9px] font-mono uppercase tracking-widest leading-relaxed">
+                  Contas Geradas pelo Sistema • Monitoramento Contínuo
+                </p>
+              </div>
+              <div className="flex items-start gap-2.5 text-neutral-500 pt-2 border-t border-neutral-900/50 mt-2">
+                <AlertCircle size={9} className="mt-0.5 text-neutral-500 shrink-0" strokeWidth={1.5} />
+                <p className="text-[9px] font-mono uppercase tracking-widest leading-relaxed text-neutral-400">
+                  Acesso Pode Ser Perdido Durante Período (7/14/30 dias) • Sem Garantias em Caso de Mau Uso
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 text-neutral-500">
+              <Disc size={12} className="animate-spin-slow" />
+              <p className="text-[10px] font-mono uppercase tracking-widest">
+                {product.description[lang]}
+              </p>
+            </div>
+          )}
         </div>
       </div>
 
