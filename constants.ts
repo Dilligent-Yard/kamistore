@@ -50,6 +50,20 @@ export const PRODUCTS: Product[] = [
     price: 279.90,
     protocol: 'tinder',
   },
+  {
+    id: 'xbox_gpu_01',
+    name: { ja: 'Xbox Game Pass Ultimate 1ヶ月', en: 'Xbox Game Pass Ultimate 1 Month', pt: 'Xbox Game Pass Ultimate 1 Mês' },
+    description: { ja: 'アクセスキー • 30日', en: 'Access Key • 30 Days', pt: 'Chave de Acesso • 30 Dias' },
+    price: 63.99,
+    protocol: 'xbox',
+  },
+  {
+    id: 'xbox_gpu_account',
+    name: { ja: 'Xbox Game Pass Ultimate アカウント', en: 'Xbox Game Pass Ultimate Account', pt: 'Conta Xbox Game Pass Ultimate' },
+    description: { ja: '共有アカウント • システム生成 • 監視中', en: 'Shared Account • System Generated • Monitored', pt: 'Conta Compartilhada • Sistema Kami • Distribuição Automatizada • Protocolo Assíncrono • Contas Geradas pelo Sistema • Monitoramento Contínuo • Acesso Pode Ser Perdido Durante Período (7/14/30 dias) • Sem Garantias em Caso de Mau Uso' },
+    price: 5.00,
+    protocol: 'xbox',
+  },
 ];
 
 export const UI_TEXT: TranslationMap = {
@@ -66,6 +80,7 @@ export const UI_TEXT: TranslationMap = {
   securePayment: { ja: '安全なプロトコル', en: 'Secure Protocol', pt: 'Protocolo Seguro' },
   spotifyLabel: { ja: 'SPOTIFY', en: 'SPOTIFY', pt: 'SPOTIFY' },
   tinderLabel: { ja: 'TINDER', en: 'TINDER', pt: 'TINDER' },
+  xboxLabel: { ja: 'XBOX', en: 'XBOX', pt: 'XBOX' },
   digitalAsset: { ja: 'デジタル資産', en: 'DIGITAL ASSET', pt: 'ATIVO DIGITAL' },
   
   // Payment Modal
