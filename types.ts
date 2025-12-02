@@ -11,9 +11,10 @@ export interface Product {
   name: LocalizedString;
   description: LocalizedString;
   price: number;
-  protocol: 'spotify' | 'tinder' | 'access_key';
+  protocol: 'spotify' | 'tinder' | 'access_key' | 'xbox';
 }
 
 export interface TranslationMap {
   [key: string]: LocalizedString;
 }
+
