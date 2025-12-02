@@ -34,23 +34,20 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[80] overflow-y-auto" role="dialog" aria-modal="true">
-      {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-black/95 backdrop-blur-sm transition-opacity duration-500" 
         onClick={onClose}
         aria-hidden="true"
       />
 
-      {/* Scrollable Container */}
       <div className="flex min-h-full items-center justify-center p-4">
         
         <div className="relative w-full max-w-6xl bg-[#080808] border border-neutral-900 flex flex-col animate-in fade-in zoom-in-95 duration-300 my-4 md:my-8">
           
-          {/* Header */}
           <div className="flex justify-between items-center p-6 md:p-8 border-b border-neutral-900 sticky top-0 bg-[#080808] z-20">
             <div className="flex flex-col">
-              <h2 className="text-xl font-mono text-white tracking-[0.2em] uppercase">System Architects</h2>
-              <span className="text-[10px] text-neutral-500 font-mono mt-1">KĀMI.SYS // CORE_TEAM</span>
+              <h2 className="text-xl font-mono text-white tracking-[0.2em] uppercase">Arquitetos do Sistema</h2>
+              <span className="text-[10px] text-neutral-500 font-mono mt-1">KĀMI.SYS // EQUIPE_PRINCIPAL</span>
             </div>
             <button 
               onClick={onClose} 
@@ -61,13 +58,11 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Content */}
           <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative overflow-hidden">
             
-            {/* Background Decor */}
             <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.02] pointer-events-none"></div>
 
-            {/* Rick - Fullstack */}
+            {/* Rick */}
             <div className="flex flex-col items-center text-center group relative z-10">
               <div className="relative mb-6">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-neutral-800 group-hover:border-neutral-500 transition-colors duration-500 relative z-10">
@@ -83,7 +78,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
               <h3 className="text-xl text-white font-light tracking-widest mb-1">RICK</h3>
               <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-6">
                 <Code2 size={12} />
-                <span>Fullstack Developer</span>
+                <span>Desenvolvedor Fullstack</span>
               </div>
 
               <div className="w-full max-w-[150px] h-px bg-neutral-900 mb-6"></div>
@@ -96,14 +91,14 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
                 >
                   <div className={`w-2 h-2 rounded-full ${copiedId === 'panzergeistt' ? 'bg-green-500' : 'bg-indigo-500'}`}></div>
                   <span className={`text-[10px] font-mono ${copiedId === 'panzergeistt' ? 'text-green-500' : 'text-neutral-300'}`}>
-                    {copiedId === 'panzergeistt' ? 'COPIED' : 'panzergeistt'}
+                    {copiedId === 'panzergeistt' ? 'COPIADO' : 'panzergeistt'}
                   </span>
                   {copiedId === 'panzergeistt' ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-neutral-600 group-hover/btn:text-white" />}
                 </button>
               </div>
             </div>
 
-            {/* Rigel - CEO */}
+            {/* Rigel */}
             <div className="flex flex-col items-center text-center group relative z-10">
               <div className="relative mb-6">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-neutral-800 group-hover:border-white transition-colors duration-500 relative z-10">
@@ -119,7 +114,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
               <h3 className="text-xl text-white font-light tracking-widest mb-1">RIGEL</h3>
               <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-6">
                 <Crown size={12} />
-                <span>CEO & Owner</span>
+                <span>CEO e Proprietário</span>
               </div>
 
               <div className="w-full max-w-[150px] h-px bg-neutral-900 mb-6"></div>
@@ -132,7 +127,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            {/* Noob04 - Support */}
+            {/* Noob04 */}
             <div className="flex flex-col items-center text-center group relative z-10">
               <div className="relative mb-6">
                 <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-neutral-800 group-hover:border-neutral-500 transition-colors duration-500 relative z-10">
@@ -161,7 +156,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
                 >
                   <div className={`w-2 h-2 rounded-full ${copiedId === '52777675' ? 'bg-green-500' : 'bg-blue-500'}`}></div>
                   <span className={`text-[10px] font-mono ${copiedId === '52777675' ? 'text-green-500' : 'text-neutral-300'}`}>
-                    {copiedId === '52777675' ? 'COPIED' : '52777675'}
+                    {copiedId === '52777675' ? 'COPIADO' : '52777675'}
                   </span>
                   {copiedId === '52777675' ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-neutral-600 group-hover/btn:text-white" />}
                 </button>
@@ -170,9 +165,8 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
 
           </div>
 
-          {/* Footer */}
           <div className="p-4 border-t border-neutral-900 bg-[#0A0A0A] flex justify-between items-center">
-              <span className="text-[9px] text-neutral-700 font-mono">EST. 2024</span>
+              <span className="text-[9px] text-neutral-700 font-mono">EST. 2025</span>
               <span className="text-[9px] text-neutral-700 font-mono">TOKYO // BRASIL</span>
           </div>
         </div>
@@ -180,3 +174,4 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose }) => {
     </div>
   );
 };
+
