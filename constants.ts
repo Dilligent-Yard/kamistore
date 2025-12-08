@@ -3,32 +3,32 @@ import { Product } from './types';
 export const PRODUCTS: Product[] = [
   {
     id: 'key_01',
-    name: '1 Mês',
+    name: 'Spotify Premium 1 Mês',
     description: 'Chave de Acesso • 30 Dias',
     price: 29.90,
     protocol: 'spotify',
   },
   {
     id: 'key_03',
-    name: '3 Meses',
+    name: 'Spotify Premium 3 Meses',
     description: 'Chave de Acesso • 90 Dias',
     price: 74.90,
     protocol: 'spotify',
   },
   {
     id: 'key_06',
-    name: '6 Meses',
+    name: 'Spotify Premium 6 Meses',
     description: 'Chave de Acesso • 180 Dias',
     price: 139.90,
     protocol: 'spotify',
   },
-  {
+  /*{
     id: 'tinder_platinum_01',
     name: 'Tinder Platinum 1 Semana',
     description: 'Tinder Platinum • 7 Dias',
     price: 20.00,
     protocol: 'tinder',
-  },
+  },*/
   {
     id: 'tinder_platinum_02',
     name: 'Tinder Platinum 1 Mês',
