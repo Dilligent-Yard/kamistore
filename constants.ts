@@ -39,7 +39,7 @@ export const PRODUCTS: Product[] = [
   {
     id: 'tinder_platinum_03',
     name: 'Tinder Platinum 3 Meses',
-    description: 'Tinder Platinum • 180 Dias',
+    description: 'Tinder Platinum • 90 Dias',
     price: 169.90,
     protocol: 'tinder',
   },
