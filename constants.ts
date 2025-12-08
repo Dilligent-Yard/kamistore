@@ -22,13 +22,13 @@ export const PRODUCTS: Product[] = [
     price: 139.90,
     protocol: 'spotify',
   },
-  {
+  /*{
     id: 'tinder_platinum_01',
     name: 'Tinder Platinum 1 Semana',
     description: 'Tinder Platinum • 7 Dias',
     price: 20.00,
     protocol: 'tinder',
-  },
+  },*/
   {
     id: 'tinder_platinum_02',
     name: 'Tinder Platinum 1 Mês',
