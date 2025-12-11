@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'tinder_plus_05',
-    name: 'Tinder Plu 12 Meses',
+    name: 'Tinder Plus 12 Meses',
     description: 'Tinder Plus • 365 Dias',
     price: 99.90,
     protocol: 'tinder',
